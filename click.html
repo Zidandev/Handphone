@@ -1,0 +1,1143 @@
+
+<html lang="en">
+
+
+
+  
+
+
+
+  <head>
+
+
+
+    <meta charset="UTF-8">
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <title>Klik Terus Jika Anda Gabut</title>
+
+
+
+    
+
+
+
+    <body>
+
+<h1>Click Game Blog</h1>
+
+<img
+
+
+
+src="https://w7.pngwing.com/pngs/704/192/png-transparent-white-pointing-hand-illustration-computer-mouse-pointer-point-and-click-mouse-cursor-angle-electronics-text-thumbnail.png" allign="left">
+
+
+
+<p> *Skor Akan tersimpan Walaupun Keluar Dari Web*</p>
+
+
+
+      
+
+
+
+
+
+
+
+ <h2>Mainkan Lagu</h2>
+
+
+
+<audio id="musicPlayer" controls loop></audio>
+
+
+
+
+<script>
+
+
+
+  var audio = document.getElementById("myAudio");
+
+
+
+  audio.loop = true;
+
+
+
+</script>
+
+
+
+</body>
+
+
+  <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            height: 100vh;
+            color: white;
+        }
+         buttop, label {
+            background-color: var(--accent-color, red);
+            color: #fff;
+            cursor: pointer;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px;
+        }
+        
+            button {
+            background-color: var(--accent-color, blue);
+            color: #fff;
+            cursor: pointer;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 30px;
+            }
+        button:hover, buttop:hover, label:hover {
+            background-color: var(--accent-hover-color, darkblue);
+        }
+        #score {
+            font-size: 20px;
+            color: var(--main-color, white);
+        }
+        input[type="file"] {
+            display: none;
+        }
+        audio {
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+            #shop {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    #shop-container {
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    </style>
+
+
+
+</head>
+
+
+
+<body>
+
+
+    <h1>Klik Untuk Memulai</h1>
+
+
+
+    <button id="clickButton">Push This Button</button>
+
+
+
+    <p id="score">Skor: 0</p>
+
+
+
+  <h2>Waktu Bermain</h2>
+  <p id="elapsedTime">Waktu Bermain Anda: 0 jam 0 menit 0 detik</p>
+  
+   <p><b>Jika Anda Bosan, Silahkan Atur Sesukamu</b></p>
+
+
+
+      <buttop id="resetScoreButton">Reset Skor</buttop>
+      
+         <label for="bgImageInput">Pilih Gambar Latar Belakang</label>
+    <input type="file" id="bgImageInput" accept="image/*">
+    
+       <label for="audioFileInput">Pilih Lagu</label>
+       
+    <input type="file" id="audioFileInput" accept="audio/*">
+
+      <audio id="clickSound" src="https://drive.google.com/uc?id=16eAWfd2fQQW9PAkxOvdI_NcqJAxt7gvz"></audio>
+
+    <label for="colorPicker">Pilih Warna Font</label>
+    <input type="color" id="colorPicker" onchange="changeFontColor(this.value)">
+        <button onclick="downloadLocalStorage()">Download Save</button>
+    <button onclick="uploadLocalStorage()">Muat File Save</button>
+  <p>*Jangan Lupa Relog Setelah Muat Save*</p>
+  <p>*Dont forget to refresh after loading save*</p>
+    <h2>Update Patch 2.7.0</h2>
+
+
+
+  <p>•Penambahan Download Save</p>
+
+
+
+  <p>•Merapihkan Tampilan Achievement</p>
+
+
+
+  <p>•Memperbaiki bug</p>
+
+
+
+  <p>•Selamat bermain </p>
+    
+    <h1>Achievements</h1>
+    <button onclick="openShop()">Achivement</button>     
+    
+        <div id="shop">
+      <div id="shop-container">
+  
+  <h2>Pencapaian Legendaris</h2>
+
+
+
+  <ul id="specialAchievements">
+
+
+
+    <!-- Tempatkan pencapaian spesial di sini -->
+
+
+
+    <li>Belum Ada Pencapaian Legendaris Yang Terbuka</li>
+
+
+
+    <!-- Anda dapat menambahkan lebih banyak pencapaian spesial di sini -->
+
+
+
+  </ul>
+
+
+
+  
+
+
+
+  <p><b>*Pencapaian Legendaris Membuktikan Progressmu*</b></p>
+
+
+
+  
+
+
+
+  <h2>Pencapaian Unik</h2>
+
+
+
+  <ul id="unikAchievements">
+
+
+
+    <!-- Tempatkan pencapaian spesial di sini -->
+
+
+
+    <li>Belum Ada Pencapaian Unik Yang Terbuka</li>
+
+
+
+    <!-- Anda dapat menambahkan lebih banyak pencapaian spesial di sini -->
+
+
+
+  </ul>
+
+
+
+  
+
+
+
+    <h2>Pencapaian Objektif</h2>
+
+
+
+  <ul id="Achievements">
+
+
+
+    <!-- Tempatkan pencapaian spesial di sini -->
+
+
+
+    <li>Belum Ada Pencapaian Objektif Yang Terbuka</li>
+
+
+
+    <!-- Anda dapat menambahkan lebih banyak pencapaian spesial di sini -->
+
+
+
+  </ul>
+
+
+
+ 
+
+    <script>
+
+
+
+        const clickButton = document.getElementById('clickButton');
+
+const bgImageInput = document.getElementById('bgImageInput');
+
+
+
+        const resetScoreButton = document.getElementById('resetScoreButton');
+
+
+
+        const resetAchievementsButton = document.getElementById('resetAchievementsButton');
+
+
+
+        const scoreElement = document.getElementById('score');
+
+
+        const clickSound = document.getElementById('clickSound');
+      
+
+
+        const specialAchievementsElement = document.getElementById('specialAchievements');
+
+
+
+        const unikAchievementsElement = document.getElementById('unikAchievements');
+
+
+
+        const AchievementsElement = document.getElementById('Achievements');
+
+
+
+        let score = localStorage.getItem('score') || 0;
+
+
+
+        
+                      const Achievements = [
+
+
+
+      { name: 'Born', scoreNeeded: 1 },
+
+
+
+      
+
+
+
+      { name: 'Newbie', scoreNeeded: 100 },
+
+
+
+      
+
+
+
+      { name: 'Amateur 1', scoreNeeded: 1000 },
+
+
+
+      
+
+
+
+      { name: 'Amateur 2', scoreNeeded: 3000 },
+
+
+
+      
+
+
+
+      { name: 'Amateur 3', scoreNeeded: 5000 },
+
+
+
+      
+
+
+
+      { name: 'Professional 1', scoreNeeded: 10000 },
+
+
+
+      
+
+
+
+      { name: 'Professional 2', scoreNeeded: 30000 },
+
+
+
+      
+
+
+
+      { name: 'Professional 3', scoreNeeded: 60000 },
+
+
+
+      
+
+
+
+      { name: 'Professional 4', scoreNeeded: 90000 },
+
+
+
+      
+
+
+
+      { name: 'Legendary Glorius', scoreNeeded: 100000 },
+
+
+
+      // Anda dapat menambahkan lebih banyak pencapaian spesial di sini
+
+
+
+    ];
+
+
+
+       
+
+
+
+          const specialAchievements = [
+
+
+
+      { name: 'You Hand Like A Diamond', scoreNeeded: 100000 },
+
+
+
+      { name: 'Sepuh Sesungguhnya', scoreNeeded: 500000 },
+
+
+
+            
+
+
+
+      { name: 'What Your Dedication to be here', scoreNeeded: 700000 },
+
+
+
+      { name: 'Almost There', scoreNeeded: 900000 },
+
+
+
+            
+
+
+
+      { name: 'Is The End?', scoreNeeded: 1000000 },
+
+
+
+      // Anda dapat menambahkan lebih banyak pencapaian spesial di sini
+
+
+
+    ];
+
+
+
+    
+
+
+
+              const unikAchievements = [
+
+
+
+      { name: 'Akhirnya Kamu Pencet Tombol Itu', scoreNeeded: 1 },
+
+
+      { name: 'Siuuu', scoreNeeded: 7},
+
+      { name: '69', scoreNeeded: 69},
+
+      { name: '123', scoreNeeded: 123},
+
+
+      { name: 'π', scoreNeeded: 314},
+
+
+
+
+      { name: '500 Bros', scoreNeeded: 500 },
+
+
+      { name: '696', scoreNeeded: 696},
+
+
+      { name: 'Jackpot', scoreNeeded: 777 },
+
+
+
+      { name: '1K Bros', scoreNeeded: 1000 },
+
+
+      { name: '1111', scoreNeeded: 1111},
+
+      { name: '2K Silver Bros', scoreNeeded: 2000},
+
+
+      { name: 'Welcome 2023', scoreNeeded: 2023 },
+
+      { name: 'I See you 2024', scoreNeeded: 2024},
+
+
+      { name: 'π #2', scoreNeeded: 3141 },
+
+
+      { name: '4K Motivation', scoreNeeded: 4000},
+
+
+      { name: '5K Yellow Bros', scoreNeeded: 5000 },
+
+      { name: '6969', scoreNeeded: 6969},
+
+
+      { name: '10K Purple Bros', scoreNeeded: 10000 },
+
+      { name: 'wooi', scoreNeeded: 11000},
+     
+
+      { name: 'One One One One One', scoreNeeded: 11111 },
+
+
+      { name: 'Tanggal Dibuat', scoreNeeded: 12923 },
+
+      { name: '15K Bros', scoreNeeded: 15000},              
+
+      { name: '20K Green Bros', scoreNeeded: 20000 },
+
+      { name: '25K Bros', scoreNeeded: 25000},
+      
+
+      { name: 'π #3', scoreNeeded: 31415 },
+
+
+      { name: '40K Motivation', scoreNeeded: 40000},
+
+
+      { name: '50K Blue Bros', scoreNeeded: 50000 },
+
+
+      { name: 'Oohhh yeahhh', scoreNeeded: 55000},
+                
+
+      { name: 'Waw kamu sangat menyukai permaian ini', scoreNeeded: 60000 },
+
+
+      { name: '75K White Bros', scoreNeeded: 75000},
+                
+
+      { name: 'Apa kamu serius Ingin melanjutkan?', scoreNeeded: 90000 },
+
+                
+
+      { name: '100K Red Bros', scoreNeeded: 100000 },
+
+                
+
+      { name: 'π #4', scoreNeeded: 314159 },
+
+                
+
+      { name: 'Half To The End', scoreNeeded: 500000 },
+
+                
+
+      { name: 'Never Gonna Tired', scoreNeeded: 700000 },
+
+                
+
+      { name: 'Super Dedication', scoreNeeded: 900000 },
+
+                
+
+      { name: 'End Of The Line Bros', scoreNeeded: 1000000 },
+
+
+
+      
+
+      // Anda dapat menambahkan lebih banyak pencapaian spesial di sini
+
+
+
+    ];
+
+
+
+
+
+
+
+    function updateScore() {
+
+
+
+            score++;
+
+
+
+            scoreElement.innerText = `Skor: ${score}`;
+
+
+
+            localStorage.setItem('score', score);
+
+
+
+	           		checkAchievements();
+
+
+
+            checkSpecialAchievements();
+
+
+
+            checkUnikAchievements();
+
+
+
+            playClickSound();
+
+
+
+        }
+  
+
+        function playClickSound() {
+          
+            clickSound.currentTime = 0; // Mengatur waktu pemutaran suara ke awal
+          
+            clickSound.play(); // Memainkan suara efek
+        }
+
+       bgImageInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    document.body.style.backgroundImage = `url(${e.target.result})`;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+       audioFileInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                musicPlayer.src = URL.createObjectURL(file);
+                musicPlayer.load();
+            }
+        });
+
+
+        function resetScore() {
+
+
+
+    // Menampilkan peringatan sebelum mereset skor
+
+
+
+    const confirmReset = confirm("Apakah Anda yakin ingin mereset skor?");
+
+
+
+    if (confirmReset) {
+
+
+
+        score = 0;
+
+
+
+        scoreElement.innerText = `Skor: ${score}`;
+
+
+
+        localStorage.setItem('score', score);
+
+
+
+        checkAchievements();
+
+
+
+        checkSpecialAchievements();
+
+
+
+        checkUnikAchievements();
+
+
+
+      }
+
+
+
+}
+
+function openShop() {
+  const shop = document.getElementById('shop');
+  
+  if (shop.style.display === 'block') {
+    shop.style.display = 'none';
+  } else {
+    shop.style.display = 'block';
+  }
+}
+
+      function changeFontColor(color) {
+            document.documentElement.style.setProperty('--main-color', color);
+            document.querySelectorAll('h1, h2, p, li').forEach(element => {
+                element.style.color = color;
+            });
+        }
+
+           function checkAchievements() {
+
+
+
+      let achievedAchievements = [];
+
+
+
+      for (const achievement of Achievements) {
+
+
+
+        if (score >= achievement.scoreNeeded) {
+
+
+
+          achievedAchievements.push(achievement.name);
+
+
+
+        }
+
+
+
+      }
+
+
+
+      if (achievedAchievements.length > 0) {
+
+
+
+        AchievementsElement.innerHTML = achievedAchievements
+
+
+
+          .map((achievement) => `<li>${achievement}: Terpenuhi</li>`)
+
+
+
+          .join('');
+
+
+
+      }
+
+
+
+    }
+
+
+
+      
+
+
+
+          function checkSpecialAchievements() {
+
+
+
+      let achievedSpecialAchievements = [];
+
+
+
+      for (const achievement of specialAchievements) {
+
+
+
+        if (score >= achievement.scoreNeeded) {
+
+
+
+          achievedSpecialAchievements.push(achievement.name);
+
+
+
+        }
+
+
+
+      }
+
+
+
+      if (achievedSpecialAchievements.length > 0) {
+
+
+
+        specialAchievementsElement.innerHTML = achievedSpecialAchievements
+
+
+
+          .map((achievement) => `<li>${achievement}: Terpenuhi</li>`)
+
+
+
+          .join('');
+
+
+
+      }
+
+
+
+    }
+
+
+
+        function checkUnikAchievements() {
+
+
+
+      let achievedUnikAchievements = [];
+
+
+
+      for (const achievement of unikAchievements) {
+
+
+
+        if (score >= achievement.scoreNeeded) {
+
+
+
+          achievedUnikAchievements.push(achievement.name);
+
+
+
+        }
+
+
+
+      }
+
+
+
+      if (achievedUnikAchievements.length > 0) {
+
+
+
+        unikAchievementsElement.innerHTML = achievedUnikAchievements
+
+
+
+          .map((achievement) => `<li>${achievement}: Terpenuhi</li>`)
+
+
+
+          .join('');
+
+
+
+      }
+
+
+
+    }
+
+
+
+    
+  function formatTime(seconds) {
+    
+  
+      const hours = Math.floor(seconds / 3600);
+    
+    
+      const minutes = Math.floor((seconds % 3600) / 60);
+    
+    
+      const remainingSeconds = seconds % 60;
+    
+    
+      return `${hours} jam ${minutes} menit ${remainingSeconds} detik`;
+    }
+
+
+  let startTime = new Date(); // Waktu mulai
+  
+      // Fungsi untuk memperbarui tampilan waktu yang sudah berlalu setiap detik
+    function updateElapsedTime() {
+      
+      const currentTime = new Date();
+      
+      const elapsedTimeInSeconds = Math.floor((currentTime - startTime) / 1000);
+      
+      document.getElementById('elapsedTime').textContent = `Waktu yang sudah berlalu: ${formatTime(elapsedTimeInSeconds)}`;
+      
+      
+    }
+  
+  setInterval(updateElapsedTime, 1000);
+  
+        // Fungsi untuk menambah skor dengan kode rahasia
+
+
+
+    function addSecretScore(secretCode) {
+
+
+
+      if (secretCode === 'tubafalopi') {
+
+
+
+        score += 99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999; // Anda dapat mengubah jumlah skor yang ditambahkan
+
+
+
+        scoreElement.innerText = `Skor: ${score}`;
+
+
+
+        localStorage.setItem('score', score);
+
+
+
+        checkAchievements();
+
+
+
+        checkSpecialAchievements();
+
+
+
+        
+
+
+
+        checkUnikAchievements();
+
+
+
+      }
+
+
+
+    }
+
+
+
+        // Memuat skor dan pencapaian saat halaman dimuat
+
+
+
+        window.addEventListener('load', () => {
+
+
+
+            scoreElement.innerText = `Skor: ${score}`;
+
+
+
+            checkAchievements();
+
+
+
+            checkSpecialAchievements();
+
+
+
+            checkUnikAchievements();
+
+
+
+        });
+
+
+
+        clickButton.addEventListener('click', updateScore);
+
+
+
+        resetScoreButton.addEventListener('click', resetScore);
+
+
+
+        resetAchievementsButton.addEventListener('click', resetAchievements);
+
+
+
+             // Fungsi auto-klik yang rahasia
+
+
+
+        let autoClickInterval;
+
+
+
+        function autoClick() {
+
+
+
+            autoClickInterval = setInterval(() => {
+
+
+
+                // Gantilah kode berikut dengan tindakan yang ingin Anda lakukan saat auto-klik berlangsung.
+
+
+
+                // Di sini, saya hanya akan memanggil fungsi updateScore() untuk menambah skor.
+
+
+
+                updateScore();
+
+
+
+            }, 1); // Auto klik setiap 0,001 detik (1 milidetik)
+
+
+
+        }
+
+
+
+        function stopAutoClick() {
+
+
+
+            clearInterval(autoClickInterval);
+
+
+
+        }
+
+
+
+        // Anda dapat mengaktifkan auto-klik dengan menjalankan autoClick() dari konsol Inspect Element.
+
+
+
+        // Anda juga dapat menghentikan auto-klik dengan menjalankan stopAutoClick().
+
+
+
+      
+
+
+
+          // Panggil fungsi addSecretScore dari konsol dengan kode rahasia
+
+
+
+    // Contoh: addSecretScore('tubafalopi'); ini
+
+
+      // Menanggapi perubahan gambar latar belakang
+
+        // Fungsi untuk mengunduh local storage sebagai file JSON
+        function downloadLocalStorage() {
+            const data = JSON.stringify(localStorage);
+            const blob = new Blob([data], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'localStorageBackup.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Fungsi untuk memuat local storage dari file JSON yang diunggah
+        function uploadLocalStorage() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.json';
+            input.addEventListener('change', (event) => {
+                const file = event.target.files[0];
+
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        const content = e.target.result;
+                        const localStorageData = JSON.parse(content);
+                        Object.keys(localStorageData).forEach(key => {
+                            localStorage.setItem(key, localStorageData[key]);
+                        });
+                        alert('Local Storage berhasil dimuat!');
+                    };
+                    reader.readAsText(file);
+                }
+            });
+            input.click();
+        }
+    </script>
+
+
+
+</body> 
+
+
+
+<body>
+
+
+
+  
+
+
+
+</body>
+
+
+
+</html>
+
+
+
+
+

@@ -1,0 +1,94 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Chat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+ </head>
+ <body class="bg-gray-900 text-white">
+  <div class="w-full max-w-md mx-auto bg-gray-800 rounded-lg overflow-hidden">
+   <!-- Top Bar dengan waktu real-time -->
+   <div class="flex items-center justify-between px-4 py-2 bg-gray-800">
+    <div class="flex items-center space-x-2">
+     <span class="text-xs real-time-clock">11:36</span>
+     <i class="fas fa-signal text-xs"></i>
+     <i class="fas fa-wifi text-xs"></i>
+     <i class="fas fa-battery-full text-xs"></i>
+    </div>
+   </div>
+   <!-- Header -->
+   <div class="flex items-center justify-between p-4 bg-gray-900">
+    <div class="flex items-center">
+     <i class="fas fa-arrow-left text-white mr-4 cursor-pointer" onclick="navigateBack()"></i>
+     <div class="w-10 h-10 bg-gray-700 rounded-full"></div>
+     <div class="ml-4">
+      <div class="text-white font-bold">Mattian</div>
+      <div class="text-green-500 text-sm">online</div>
+     </div>
+    </div>
+    <div class="flex items-center space-x-4">
+     <i class="fas fa-video text-white"></i>
+     <i class="fas fa-phone text-white"></i>
+     <i class="fas fa-ellipsis-v text-white"></i>
+    </div>
+   </div>
+   <!-- Notification -->
+   <div class="bg-gray-700 text-center text-sm p-2">
+    <i class="fas fa-lock"></i>
+    Pesan yang dikirim ke chat ini dan panggilan kini diamankan dengan enkripsi end-to-end. Ketuk untuk info selengkapnya.
+   </div>
+   <!-- Chat Background -->
+   <div class="relative">
+    <img alt="Background image of a character with purple hair and a purple jacket" class="w-full h-full object-cover" height="1600" src="https://storage.googleapis.com/a1aa/image/c3bQ6A34FAZfD65v85FsggMsjaO0LwikpCFdNRpREvShf3qTA.jpg" width="720"/>
+    <!-- Chat Messages -->
+    <div class="absolute inset-0 p-4 flex flex-col justify-end space-y-2">
+     <div class="flex justify-start">
+      <div class="bg-gray-800 text-white p-2 rounded-lg max-w-xs">
+       Yeah
+       <span class="text-gray-400 text-xs ml-2">12:14</span>
+      </div>
+     </div>
+     <div class="flex justify-end">
+      <div class="bg-green-600 text-white p-2 rounded-lg max-w-xs">
+       Tes
+       <span class="text-gray-200 text-xs ml-2">12:14<i class="fas fa-check-double"></i></span>
+      </div>
+     </div>
+    </div>
+   </div>
+   <!-- Message Input -->
+   <div class="flex items-center p-4 bg-gray-900">
+    <div class="flex items-center flex-grow bg-gray-800 rounded-full px-4 py-2">
+     <i class="fas fa-smile text-gray-400 mr-4"></i>
+     <input class="bg-transparent text-white flex-grow outline-none" placeholder="Pesan" type="text"/>
+     <i class="fas fa-paperclip text-gray-400 mr-4"></i>
+     <i class="fas fa-camera text-gray-400"></i>
+    </div>
+    <div class="ml-4">
+     <i class="fas fa-microphone text-green-500 text-2xl"></i>
+    </div>
+   </div>
+  </div>
+
+  <!-- Script untuk waktu real-time dan navigasi kembali -->
+  <script>
+    function updateTime() {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+
+      document.querySelectorAll('.real-time-clock').forEach(el => {
+        el.textContent = `${hours}:${minutes}`;
+      });
+    }
+
+    function navigateBack() {
+      window.location.href = 'wa.html';
+    }
+
+    setInterval(updateTime, 1000);
+    updateTime();
+  </script>
+ </body>
+</html>

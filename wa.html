@@ -1,0 +1,56 @@
+<html>
+ <head>
+  <title>ApaKabar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+ </head>
+ <body class="bg-gray-900 text-white font-sans">
+  <div class="flex flex-col h-screen">
+   <!-- Top Bar -->
+   <div class="flex items-center justify-between px-4 py-2 bg-gray-800">
+    <div class="flex items-center space-x-2">
+     <span class="text-xs real-time-clock">11:36</span>
+     <i class="fas fa-signal text-xs"></i>
+     <i class="fas fa-wifi text-xs"></i>
+     <i class="fas fa-battery-full text-xs"></i>
+    </div>
+   </div>
+   <!-- Header -->
+   <div class="flex items-center justify-between px-4 py-2 bg-gray-800">
+    <h1 class="text-xl font-bold">ApaKabar</h1>
+   </div>
+   <!-- Chat List -->
+   <div class="flex items-center px-4 py-2 border-b border-gray-700">
+    <img alt="Profile picture" class="rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/HV00UpY0qZ7fUq1SjPGD35pN2bF7iYUNfwv9Z7SbNkHnt3qTA.jpg" width="40"/>
+    <div class="ml-4 flex-1" onclick="navigateTo('chat.html')">
+     <div class="flex justify-between">
+      <span class="font-bold">Mattian</span>
+      <span class="text-xs text-gray-400 real-time-clock">11:33</span>
+     </div>
+     <div class="flex items-center">
+      <i class="fas fa-check-double text-blue-500"></i>
+      <span class="ml-1 text-gray-400">Ah poke aja lu</span>
+     </div>
+    </div>
+   </div>
+
+   <script>
+    function updateTime() {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+
+      document.querySelectorAll('.real-time-clock').forEach(el => {
+        el.textContent = `${hours}:${minutes}`;
+      });
+    }
+
+    function navigateTo(page) {
+      window.location.href = page;
+    }
+
+    setInterval(updateTime, 1000);
+    updateTime();
+  </script>
+ </body>
+</html>

@@ -1,0 +1,119 @@
+<html>
+ <head>
+  <title>
+   Oh My Handphone
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+  </style>
+ </head>
+ <body class="bg-cover bg-center h-screen" style="background-image: url('https://i.pinimg.com/564x/60/37/7c/60377c9ff5c9afca1af25b858ab6db7b.jpg');">
+  <div class="flex flex-col h-full justify-between p-4 text-white">
+   <!-- Top Section -->
+   <div class="flex justify-between items-center">
+    <div class="flex space-x-2 items-center">
+     <i class="fas fa-signal">
+     </i>
+     <i class="fas fa-wifi">
+     </i>
+     <i class="fas fa-battery-full">
+     </i>
+    </div>
+    <div class="text-right">
+     <div class="text-4xl font-light">
+      11:31
+     </div>
+     <div class="text-sm">
+      Min, 27 Oktober
+     </div>
+    </div>
+   </div>
+   <div class="flex justify-end items-center space-x-2">
+    <div class="text-sm">
+     Berawan
+    </div>
+    <div class="text-sm">
+     34°C
+    </div>
+    <i class="fas fa-cloud-sun">
+    </i>
+   </div>
+   <!-- Middle Section -->
+   <div class="flex flex-col items-center space-y-8">
+    <div class="grid grid-cols-2 gap-8">
+     <div class="flex flex-col items-center">
+      <img alt="Click Game Blog Icon" class="w-16 h-16 rounded-lg" height="100" src="https://img.itch.zone/aW1nLzE0MTczMzM2LmpwZw==/315x250%23c/mtE9zZ.jpg" width="100"/>
+      <div class="text-center text-sm mt-2">
+       Click Game Blog
+      </div>
+     </div>
+     <div class="flex flex-col items-center">
+      <img alt="Snake Snike Icon" class="w-16 h-16 rounded-lg" height="100" src="https://img.itch.zone/aW1nLzE4MTk0MDIwLnBuZw==/315x250%23c/tpKqXW.png" width="100"/>
+      <div class="text-center text-sm mt-2">
+       SNAKE SNIKE
+      </div>
+     </div>
+     <div class="flex flex-col items-center">
+      <img alt="Catatan Icon" class="w-16 h-16 rounded-lg" height="100" src="https://cdn-icons-png.flaticon.com/512/579/579703.png" width="100"/>
+      <div class="text-center text-sm mt-2">
+       Catatan
+      </div>
+     </div>
+    </div>
+   </div>
+   <!-- Bottom Section -->
+   <div class="flex justify-between items-center">
+    <i class="fab fa-whatsapp text-4xl relative">
+     <span class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-1">
+      1
+     </span>
+    </i>
+    <i class="fas fa-camera text-4xl">
+    </i>
+    <i class="fas fa-phone text-4xl">
+    </i>
+   </div>
+  </div>
+ </body>
+ <!-- Tambahkan script ini di bagian bawah body dalam index.html -->
+<script>
+    // Fungsi untuk mengatur navigasi setiap ikon aplikasi
+    function navigateTo(page) {
+      window.location.href = page;
+    }
+    function updateTime() {
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+
+    // Menampilkan waktu
+    document.querySelector('.text-4xl.font-light').textContent = `${hours}:${minutes}`;
+    
+    // Menampilkan tanggal dan hari
+    const days = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'];
+    const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+    const day = days[now.getDay()];
+    const date = now.getDate();
+    const month = months[now.getMonth()];
+    document.querySelector('.text-sm').textContent = `${day}, ${date} ${month}`;
+  }
+
+  // Memperbarui waktu setiap detik
+  setInterval(updateTime, 1000);
+  updateTime(); // Panggil sekali saat halaman dimuat
+  
+    // Event listeners untuk ikon-ikon
+    document.querySelector('img[alt="Click Game Blog Icon"]').addEventListener('click', () => navigateTo('click.html'));
+    document.querySelector('img[alt="Snake Snike Icon"]').addEventListener('click', () => navigateTo('snake.html'));
+    document.querySelector('img[alt="Catatan Icon"]').addEventListener('click', () => navigateTo('note.html'));
+    
+    // Event listener untuk ikon WhatsApp
+    document.querySelector('.fab.fa-whatsapp').addEventListener('click', () => navigateTo('wa.html'));
+  </script>
+</html>
